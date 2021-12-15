@@ -1,19 +1,19 @@
 import java.awt.*;
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
+
 // menu
 public class Beginning extends JFrame {
     JPanel panel = new JPanel();
 	JLabel im = new JLabel(new ImageIcon("Images/1.png"));
 	JLabel title = new JLabel("Arknights",JLabel.CENTER);
-	JPanel[] panels = new JPanel[4];
-	JButton[] buttons = {
-		new JButton("Start"),
-		new JButton ("Load"),
-		new JButton("Help"),
-        new JButton("Exit") };
+//	JPanel[] panels = new JPanel[4];
+//	JButton[] buttons = {
+//		new JButton("Start"),
+//		new JButton ("Load"),
+//		new JButton("Help"),
+//        new JButton("Exit") };
 	JFrame help = new JFrame();
 	
 	public Beginning(String name) {
@@ -21,25 +21,71 @@ public class Beginning extends JFrame {
 		setLayout(new GridLayout(3,1));
 		// Text Style
 		title.setFont(new Font("GameName",Font.BOLD,150) );
-	    
+
 		add(title);
 		add(im);
-		
+		JMenuBar menubar = new JMenuBar();//
+		JMenu menu = new JMenu("Game");//
+
+		JMenuItem NewGame;
+		JMenuItem Help;
+		JMenuItem OpenGame;
+		JMenuItem Exit;
+
+		setJMenuBar(menubar);
+		NewGame = NewGame();
+		Help = Help();
+		OpenGame = OpenGame();
+		Exit = Exit();
+
+
+		menu.add(NewGame);
+		menu.add(OpenGame);
+		menu.add(Help);
+
+		menubar.add(menu);//
+		menubar.add(Exit);//
+
 		helpcre();
-		
-		panel.setLayout(new GridLayout(3,2));
-		panel.add(new JPanel());
-		panel.add(new JPanel());
-		for(int index=0;index<buttons.length;index++){
-			buttons[index].addActionListener(new BeginLis());
-			panels[index]=new JPanel();
-			panels[index].add(buttons[index]);
-			panel.add(panels[index]);
-		}
-			
-		getContentPane().add(panel);
+
+//		panel.setLayout(new GridLayout(3,2));
+//		panel.add(new JPanel());
+//		panel.add(new JPanel());
+//		for(int index=0;index<buttons.length;index++){
+//			buttons[index].addActionListener(new BeginLis());
+//			panels[index]=new JPanel();
+//			panels[index].add(buttons[index]);
+//			panel.add(panels[index]);
+//		}
+//
+//		getContentPane().add(panel);
 	}
-    // help
+
+	private JMenuItem NewGame() {
+		JMenuItem tmp = new JMenuItem("NewGame");
+		class Newgame implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				run.frames[1].setVisible(true);
+			}
+		}
+		tmp.addActionListener(new Newgame());
+		return tmp;
+	}
+    //°ïÖú½çÃæ
+	private JMenuItem Help(){
+		JMenuItem tmp = new JMenuItem("Help");
+		class savegame implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				help.setVisible(true);;
+			}
+		}
+		tmp.addActionListener(new savegame());
+		return tmp;
+	}
 	public void helpcre(){
 		JTextArea d = new JTextArea();
     	d.setEditable(false);
@@ -74,26 +120,53 @@ public class Beginning extends JFrame {
         run.screencentre(help);
         help.pack();
 	}
-	
-    private class BeginLis implements ActionListener {
 
-	    public void actionPerformed(ActionEvent e) {
-            if(e.getSource()==buttons[0]){
-            	setVisible(false);
-            	run.frames[1].setVisible(true);
-            }
-            else if(e.getSource()==buttons[1]){
-            	setVisible(false);
-            	run.frames[1].setVisible(true);
-            	S_L.Load();
-            }
-            else if(e.getSource()==buttons[2]){
-                help.setVisible(true);
-            }
-            else if(e.getSource()==buttons[3]){
-            	System.exit(0);
-            }
+	private JMenuItem OpenGame(){
+		JMenuItem tmp = new JMenuItem("Load");
+		class OpenGame implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				run.frames[1].setVisible(true);
+				S_L.Load();
+			}
 		}
-
+		tmp.addActionListener(new OpenGame());
+		return tmp;
 	}
+
+	private JMenuItem Exit(){
+		JMenuItem tmp = new JMenuItem("Exit");
+		class Exit implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		}
+		tmp.addActionListener(new Exit());
+		return tmp;
+	}
+
+//    private class BeginLis implements ActionListener {
+//
+//	    public void actionPerformed(ActionEvent e) {
+//            if(e.getSource()==buttons[0]){
+//            	setVisible(false);
+//            	run.frames[1].setVisible(true);
+//            }
+//            else if(e.getSource()==buttons[1]){
+//            	setVisible(false);
+//            	run.frames[1].setVisible(true);
+//            	S_L.Load();
+//            }
+//            else if(e.getSource()==buttons[2]){
+//                help.setVisible(true);
+//            }
+//            else if(e.getSource()==buttons[3]){
+//            	System.exit(0);
+//            }
+//		}
+//
+//	}
 }
