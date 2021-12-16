@@ -59,7 +59,7 @@ public class Agents implements Serializable {
 	}
 
 	// Attack
-	public String attack(Humen[] human, int current) {
+	public String attack(Enemy[] human, int current) {
 		int hurt;
 		// Attack the valid object
 		if (human[current].HP == 0) {

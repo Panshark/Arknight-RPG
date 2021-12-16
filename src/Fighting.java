@@ -8,7 +8,7 @@ import javax.swing.*;
 public class Fighting extends JFrame {
 
 	int hucount = 0, anicount = 0, current = 0, gain, lost, area, process, experience;
-	Humen[] humans;
+	Enemy[] humans;
 	JPanel fighting = new JPanel();
 	JTextArea EnHP = new JTextArea();
 	JTextArea MyHP = new JTextArea();
@@ -19,7 +19,7 @@ public class Fighting extends JFrame {
 	JScrollPane jp = new JScrollPane(Description);
 	JButton[] buts = new JButton[3];
 
-	public Fighting(String name, int area, int process, Humen[] humans) {
+	public Fighting(String name, int area, int process, Enemy[] humans) {
 		super(name);
 		this.area = area;
 		this.process = process;
@@ -63,7 +63,7 @@ public class Fighting extends JFrame {
 		return HP;
 	}
 
-	public String printHP(Humen[] humans) {
+	public String printHP(Enemy[] humans) {
 		String HP = "";
 		for (int index = 0; index < humans.length; index++) {
 			HP += humans[index].name + " HP:" + humans[index].HP + "/" + humans[index].TotalHP + "\n\n";
@@ -79,7 +79,7 @@ public class Fighting extends JFrame {
 	}
 
 	// Attack
-	public void MyAttack(Humen[] humans) {
+	public void MyAttack(Enemy[] humans) {
 		// Makes a valid object attack
 		if (run.data.wargroup[current].HP == 0) {
 			for (int index = 0; index < run.data.wargroup.length; index++) {

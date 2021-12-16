@@ -91,17 +91,17 @@ public class Beginning extends JFrame {
     	d.setEditable(false);
 		d.setOpaque(false);
 		d.setLineWrap(true);
-    	d.setFont(new Font("",0,25));
+    	d.setFont(new Font("",0,20));
     	d.setText(
-"一、游戏剧情\n\n"+
-"        该项目是一个回合制RPG 游戏，讲述了动物主角对抗人类，自逃出动物园开始，一路与人类对抗，提升能力，并寻找新队友组成团体，逼得人类不得不与之谈判，最终与人类达成了和平协议的故事。玩家可以通过全鼠标点击操控来体验游戏。   \n\n\n"+
+"Story Introduction: \n\n"+
+"        This is a Turn-Based RPG game based on Arknights. You can just use your mouse to play this game. Leading your agents and enjoying your adventure.\n\n\n"+
 
-"二、游戏基本流程\n\n"+
-"        1.初始玩家拥有三个出战角色，在战斗界面Area1中完成三关后，可以平行推进Area 2-1 2-2  2-3 的各个关卡。\n\n"+
-"        2.其间根据Area属性的不同会随机接到新队员请求加入的提示，接受后可以在基地安排它们上阵的顺序。\n\n"+
-"        3.关卡会随机掉落不同品质的装备，也可以去商店购买，用于增强角色战斗力。\n\n"+
-"        4.如果等级不够高，或者装备品质差，很有可能战斗失败，可以重复挑战先前关卡提升等级实力，积攒金钱，不建议跳关。\n\n"+
-"        5.Area 2 全部结束后，进行终章Area 3 的关卡。\n");
+"How to play: \n\n"+
+"        1. You have three initial agents in the very beginning. And we you finish area 0, you can challenge whatever 1-1, 2-1, 3-2. They are in the same difficulty;\n\n"+
+"        2. You will meet new agents. You have to weigh which agents you should use, because you can only use three in one combat;\n\n"+
+"        3. It will randomly drop different quality equipments in each battle. The equipments can also be purchased from the store, used to enhance the character's combat effectiveness;\n\n"+
+"        4. If you can't continue the story, try repeating the previous chapters to gain more strength;\n\n"+
+"        5. After middle Areas are completed, proceed to bottom Area for the final chapter.\n");
     	
     	JButton back = new JButton("Back");
     	back.addActionListener(new ActionListener() {

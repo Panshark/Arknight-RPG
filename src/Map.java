@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Constructor;
 
 import javax.swing.*;
 
@@ -11,43 +10,43 @@ public class Map extends JFrame {
 
 	JPanel up = new JPanel();
 	JPanel Zoo = new JPanel();
-	JLabel ZooLa = new JLabel("                  Area 1 动物园                             ");
-	JButton[] ZooBt = { new JButton("          兽笼脱出            "), 
-			new JButton("           街道突围             "), 
-			new JButton("            希望之门             ")};
+	JLabel ZooLa = new JLabel("                  Area 0 Battlefield                             ");
+	JButton[] ZooBt = { new JButton("          0-1 Collapse            "),
+			new JButton("           0-2 Dilemma             "),
+			new JButton("            0-3 Assault             ")};
 	
 	JPanel Land = new JPanel();
-	JLabel LandLa = new JLabel("            Area 2-1 陆地                      ");
-	JButton[] LandBt = { new JButton("           痛击偷猎者              ") ,
-			new JButton("           大战狩猎场              "),
-			new JButton("          拦截贩卖运输车       "),
-			new JButton("           攻陷野味餐馆          "),
-			new JButton("          摧毁毛皮工厂           ")};
+	JLabel LandLa = new JLabel("              Area 1 Siege                    ");
+	JButton[] LandBt = { new JButton("           1-1 Ruins Siege            "),
+			new JButton("     1-2 Stronghold Siege        ") ,
+			new JButton("        1-3 Outpost Siege           "),
+			new JButton("              1-4 Base Siege           "),
+			new JButton("          1-5 Fortress Siege         ")};
 
 	JPanel Sea = new JPanel();
-	JLabel SeaLa = new JLabel("                Area 2-2 海洋                    ");
-	JButton[] SeaBt = { new JButton("              阻止滥捕鱼类           "),
-			new JButton("              迎战捕鲸船                ") ,
-			new JButton("              整治排污企业            "),
-			new JButton("              大闹海鲜餐馆             "),
-			new JButton("             捣毁危险声纳              ")};
+	JLabel SeaLa = new JLabel("                Area 2 Siberia                    ");
+	JButton[] SeaBt = { new JButton("              2-1 Biting Cold           "),
+			new JButton("        2-2 Drifting, Falling          ") ,
+			new JButton("2-3 Furniture Shipping Escort"),
+			new JButton("          2-4 Condensation         "),
+			new JButton("             2-5 Hoarfrost              ")};
 
 	JPanel Sky = new JPanel();
-	JLabel SkyLa = new JLabel("           Area 2-3 天空              ");
-	JButton[] SkyBt = { new JButton("         暴揍掏鸟窝的熊孩子   "),
-			new JButton("          痛打捕鸟者                    "),
-			new JButton("          征服花鸟市场                "),
-			new JButton("          禁止滥杀鸟类                "),
-			new JButton("         击落障碍物飞机             ")};
+	JLabel SkyLa = new JLabel("              Area 3 SKY FALL                ");
+	JButton[] SkyBt = { new JButton("            3-1 Guerilla-1            "),
+			new JButton("           3-2 Guerilla-2             "),
+			new JButton("   3-3 It Fell From the Sky!    "),
+			new JButton(" 3-4 Deep Into Enemy Lines"),
+			new JButton("             3-5 Intruder              ")};
 
 	JPanel down = new JPanel();
 	JPanel End = new JPanel();
-	JLabel EndLa = new JLabel("         Area 3 终章           ");
-	JButton[] EndBt = { new JButton("       宣战      ") ,
-			new JButton("       火并     	"),
-			new JButton("       混战        ") ,
-			new JButton("       决战         ") ,
-			new JButton("       艰难和谈          ") };
+	JLabel EndLa = new JLabel("         Area 3 End Game           ");
+	JButton[] EndBt = { new JButton("       Giant      ") ,
+			new JButton("       Assassin     	"),
+			new JButton("       Dandy        ") ,
+			new JButton("       Godfather         ") ,
+			new JButton("    Winter's Scar    ") };
 
 	JPanel cen = new JPanel();
 	JPanel[] panels = { Zoo, Land, Sea, Sky, End };
@@ -88,19 +87,23 @@ public class Map extends JFrame {
 	}
 
 	// Create a enemy group
-	public Humen[] CreArray(int area, int process) {
-		Humen[] enermy = new Humen[3];
+	public Enemy[] CreArray(int area, int process) {
+		Enemy[] enermy = new Enemy[3];
 		for (int index = 0; index < 3; index++) {
             if(area==0)
-			    enermy[index] = new HumenZoo(process);
+			    enermy[index] = new EnemyBegin(process);
             else if(area==1)
-            	enermy[index] = new HumenLand(process);
+            	enermy[index] = new EnemyLand(process);
             else if(area==2)
-            	enermy[index] = new HumenSea(process);
+            	enermy[index] = new EnemySea(process);
             else if(area==3)
-            	enermy[index] = new HumenSky(process);
+            	enermy[index] = new EnemySky(process);
             else if(area==4)
-            	enermy[index] = new HumenEnd(process);
+				if (index == 0) {
+					enermy[index] = new EnemyEnd(process);
+				}else{
+					enermy[index] = new EnemySky(process);
+				}
 			enermy[index].setName(index);
 		}
 
