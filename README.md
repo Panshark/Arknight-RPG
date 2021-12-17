@@ -26,3 +26,6 @@ This is a Turn-Based RPG game based on Arknights. You can just use your mouse to
 - GUI: Almost everywhere;
 - Thread: In shop.java, data.java, base.java, and bag.java, when associated with character attributes we use threads. This is for real-time refresh of the data;
 - Database: In S_L.java, it is for the save/load feature. We use creat.java to creat tabel in database.db, transform data stream by socket, and use server.java to listen the save and load actions.
+
+## Environmnt
+- SDK 11, language level = 11.0
