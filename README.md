@@ -4,6 +4,7 @@
 This is a Turn-Based RPG game based on Arknights. You can just use your mouse to play this game. Arknights (Chinese: 明日方舟; pinyin: Míngrì Fāngzhōu, "Tomorrow's Ark") is a free-to-play tactical RPG/tower defense mobile game developed by Chinese developer Hypergryph. It was released in China on 1 May 2019, in other countries on 16 January 2020 and in Taiwan on 29 June 2020. Arknights is available on iOS and Android platforms and features gacha game mechanics. An anime adaptation by Yostar Pictures has been announced. Leading your agents and enjoying your adventure.
 
 ## How to play:
+- Add sqlite-jdbc-3.30.1.jar to your Module->Dependencies
 - Run run.java;
 - Hit NewGame bottom in Game menu;
 - Now you have three agents, and you are in the scenes interface:
@@ -29,3 +30,4 @@ This is a Turn-Based RPG game based on Arknights. You can just use your mouse to
 
 ## Environmnt
 - SDK 11, language level = 11.0
+- Recommend to use Intellij IDEA https://www.jetbrains.com/idea/
